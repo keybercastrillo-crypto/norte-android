@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-editorial: "Fraunces", ui-serif, Georgia, serif;
+  --color-bg: #12110e;
+  --color-fg: #f3ecdf;
+  --color-muted: #a3988b;
+  --color-brass: #e0a85c;
+  --color-ink: #1a1612;
+  --color-ticket: #f4efe6;
+  --color-sage: #1e6b43;
+  --color-clay: #a33b32;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: var(--color-bg);
+    color: var(--color-fg);
+  }
+
+  body {
+    min-height: 100vh;
+    font-family: var(--font-sans);
+    line-height: 1.5;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled),
+  label[for] {
+    cursor: pointer;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brass);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-brass) 50%, transparent);
+    color: var(--color-ink);
+  }
+}
+
+.ticket-shadow {
+  box-shadow: 0 28px 70px -36px color-mix(in srgb, black 70%, var(--color-bg));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
